@@ -1,6 +1,9 @@
 extends Tree
 
 
+var last_position: int
+
+
 func _process(_delta):
 	var item = get_root()
 	if not item:
@@ -14,7 +17,9 @@ func _process(_delta):
 	
 	var rect = get_item_area_rect(item, columns - 1)
 	custom_minimum_size = rect.position + rect.size + Vector2(10, 30)
-	queue_redraw()
+	if last_position != ProjectManager.current_project.animation_position:
+		queue_redraw()
+		last_position = ProjectManager.current_project.animation_position
 
 
 #func _process(delta):
@@ -24,7 +29,7 @@ func _process(_delta):
 func _draw():
 	if not ProjectManager.current_project or ProjectManager.current_project.current_animation.is_empty():
 		return
-		
+	
 	#if not get_root() or not get_root().get_first_child():
 		#return
 	#

@@ -229,9 +229,10 @@ func _on_animation_changed(name: String = ProjectManager.current_project.current
 	key_tree.create_item()
 	
 	var animation = project.animation_library.get_animation(name)
-	key_tree.columns = int(animation.length)
+	key_tree.columns = int(animation.length) + 1
 	for column in key_tree.columns:
 		key_tree.set_column_title(column, str(column))
+		key_tree.set_column_title_alignment(column, HORIZONTAL_ALIGNMENT_CENTER)
 		key_tree.set_column_custom_minimum_width(column, 30)
 		key_tree.set_column_clip_content(column, true)
 		

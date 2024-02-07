@@ -1,4 +1,4 @@
-[gd_scene load_steps=36 format=3 uid="uid://65itei06ygcs"]
+[gd_scene load_steps=37 format=3 uid="uid://65itei06ygcs"]
 
 [ext_resource type="Theme" uid="uid://t3vd85oxwfhm" path="res://theme.tres" id="1_o4047"]
 [ext_resource type="Script" path="res://App.gd" id="1_pj21a"]
@@ -20,6 +20,7 @@
 [ext_resource type="Script" path="res://ui/AnimationKeyTree.gd" id="15_d8d2v"]
 [ext_resource type="Script" path="res://ui/AnimationMenuButton.gd" id="16_losm5"]
 [ext_resource type="Script" path="res://ui/AnimationPanelContainer.gd" id="17_0kqd1"]
+[ext_resource type="Script" path="res://ui/DisplayViewportContainer.gd" id="17_h3le5"]
 [ext_resource type="PackedScene" uid="uid://pbh4cpnqnyhl" path="res://text_popup.tscn" id="17_o6jg1"]
 [ext_resource type="Script" path="res://ui/AnimationTree.gd" id="17_pun2p"]
 
@@ -339,6 +340,7 @@ grow_horizontal = 2
 grow_vertical = 2
 size_flags_vertical = 3
 ratio = 1.78
+script = ExtResource("17_h3le5")
 
 [node name="SubViewportContainer" type="SubViewportContainer" parent="Control/PanelContainer/MarginContainer/VBoxContainer/HSplitContainer/HSplitContainer/MainSplitContainer/VBoxContainer/MainContainer/DisplayViewportContainer"]
 layout_mode = 2
@@ -346,12 +348,25 @@ size_flags_vertical = 3
 stretch = true
 
 [node name="SubViewport" type="SubViewport" parent="Control/PanelContainer/MarginContainer/VBoxContainer/HSplitContainer/HSplitContainer/MainSplitContainer/VBoxContainer/MainContainer/DisplayViewportContainer/SubViewportContainer"]
+transparent_bg = true
 handle_input_locally = false
+gui_disable_input = true
 size = Vector2i(726, 407)
 render_target_update_mode = 0
 
 [node name="Camera3D" type="Camera3D" parent="Control/PanelContainer/MarginContainer/VBoxContainer/HSplitContainer/HSplitContainer/MainSplitContainer/VBoxContainer/MainContainer/DisplayViewportContainer/SubViewportContainer/SubViewport"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -9, 8.3, 10)
+
+[node name="TextureRect" type="TextureRect" parent="Control/PanelContainer/MarginContainer/VBoxContainer/HSplitContainer/HSplitContainer/MainSplitContainer/VBoxContainer/MainContainer/DisplayViewportContainer"]
+layout_mode = 2
+expand_mode = 1
+
+[node name="PopupMenu" type="PopupMenu" parent="Control/PanelContainer/MarginContainer/VBoxContainer/HSplitContainer/HSplitContainer/MainSplitContainer/VBoxContainer/MainContainer/DisplayViewportContainer"]
+item_count = 2
+item_0/text = "Load Image"
+item_0/id = 0
+item_1/text = "Load Video"
+item_1/id = 1
 
 [node name="EditViewportContainer" type="SubViewportContainer" parent="Control/PanelContainer/MarginContainer/VBoxContainer/HSplitContainer/HSplitContainer/MainSplitContainer/VBoxContainer/MainContainer"]
 layout_mode = 1

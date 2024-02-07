@@ -1,0 +1,51 @@
+[gd_scene load_steps=6 format=3 uid="uid://dep7onstrofts"]
+
+[ext_resource type="Script" path="res://ui/DisplaySettingSlider.gd" id="1_fekk1"]
+[ext_resource type="Texture2D" uid="uid://bpdun2w8wrbwx" path="res://AddKeyframe.png" id="2_8h1jx"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ukhgg"]
+content_margin_top = 3.0
+content_margin_bottom = 3.0
+bg_color = Color(0.341176, 0.341176, 0.341176, 0.6)
+corner_radius_top_left = 4
+corner_radius_top_right = 4
+corner_radius_bottom_right = 4
+corner_radius_bottom_left = 4
+corner_detail = 6
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_ft3kn"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_vbvvd"]
+
+[node name="DisplaySettingSlider" type="HBoxContainer"]
+alignment = 1
+script = ExtResource("1_fekk1")
+
+[node name="HSlider" type="HSlider" parent="."]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 1
+theme_override_styles/slider = SubResource("StyleBoxFlat_ukhgg")
+theme_override_styles/grabber_area = SubResource("StyleBoxEmpty_ft3kn")
+theme_override_styles/grabber_area_highlight = SubResource("StyleBoxEmpty_vbvvd")
+value = 50.0
+
+[node name="LineEdit" type="LineEdit" parent="."]
+layout_mode = 2
+theme_override_constants/minimum_character_width = 4
+text = "0"
+context_menu_enabled = false
+virtual_keyboard_type = 3
+middle_mouse_paste_enabled = false
+drag_and_drop_selection_enabled = false
+flat = true
+
+[node name="AddKeyframe" type="Button" parent="."]
+visible = false
+custom_minimum_size = Vector2(20, 20)
+layout_mode = 2
+disabled = true
+icon = ExtResource("2_8h1jx")
+flat = true
+icon_alignment = 1
+expand_icon = true
